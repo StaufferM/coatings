@@ -42,13 +42,15 @@
       padding: 0;
     }
 
-    body {
-      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background: linear-gradient(180deg, var(--bg-alt), var(--bg));
-      color: var(--text);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
+   body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: linear-gradient(180deg, var(--bg-alt), var(--bg));
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden; /* 👈 prevents horizontal scroll on mobile */
+}
+
 
     a {
       color: inherit;
@@ -73,14 +75,16 @@
     /* NAVBAR */
 
     .nav-wrap {
-      position: sticky;
-      top: 0;
-      z-index: 40;
-      backdrop-filter: blur(14px);
-      background: rgba(255,255,255,0.98);
-      border-bottom: 1px solid rgba(148,163,184,0.35);
-      box-shadow: 0 4px 10px rgba(15,23,42,0.04);
-    }
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  /* solid white, no transparency */
+  background: #ffffff;
+  border-bottom: 1px solid rgba(148,163,184,0.35);
+  box-shadow: 0 4px 10px rgba(15,23,42,0.06);
+  backdrop-filter: none; /* remove blur/glass effect */
+}
+
 
     .nav {
       height: 64px;
@@ -832,74 +836,132 @@
     /* RESPONSIVE */
 
     @media (max-width: 960px) {
-      .hero-inner,
-      .comparison,
-      .two-col,
-      .contact {
-        grid-template-columns: minmax(0,1fr);
-      }
+  .hero-inner,
+  .comparison,
+  .two-col,
+  .contact {
+    grid-template-columns: minmax(0,1fr);
+  }
 
-      .hero {
-        padding-top: 2.1rem;
-      }
+  .hero {
+    padding-top: 2.1rem;
+  }
 
-      .hero-visual {
-        order: -1;
-      }
+  .hero-visual {
+    order: -1;
+  }
 
-      .cards-grid,
-      .gallery {
-        grid-template-columns: repeat(2, minmax(0,1fr));
-      }
-    }
+  /* make cards & gallery go 2-wide on tablets */
+  .cards-grid,
+  .gallery {
+    grid-template-columns: repeat(2, minmax(0,1fr));
+  }
+}
 
-    @media (max-width: 768px) {
-      .nav-main {
-        display: none;
-      }
+@media (max-width: 768px) {
+  /* NAVBAR MOBILE LAYOUT */
 
-      .nav-toggle {
-        display: block;
-      }
+  .nav {
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0.6rem 0;
+  }
 
-      .nav-menu-open .nav-main {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.9rem;
-        padding: 0.75rem 0 1.1rem;
-      }
+  .brand-sub {
+    font-size: 0.68rem;
+  }
 
-      .nav-wrap {
-        background: rgba(255,255,255,0.98);
-      }
+  .nav-toggle {
+    display: block;
+    margin-left: auto;
+    color: #111827; /* dark icon so it's visible */
+  }
 
-      .hero-card {
-        margin-top: 0.4rem;
-      }
+  /* hide menu by default on mobile */
+  .nav-main {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 0.4rem;
+    padding: 0.75rem 0.9rem 0.9rem;
+    border-top: 1px solid rgba(229,231,235,1);
+    background: #ffffff; /* 👈 solid white panel */
+    border-radius: 0 0 14px 14px;
+    box-shadow: 0 10px 25px rgba(15,23,42,0.12);
+  }
 
-      .cards-grid,
-      .gallery {
-        grid-template-columns: minmax(0,1fr);
-      }
+  /* when nav-menu-open is on the header, show the dropdown */
+  .nav-menu-open .nav-main {
+    display: flex;
+  }
 
-      .section-header {
-        margin-bottom: 1.2rem;
-      }
+  .nav-links {
+    flex-direction: column;
+    gap: 0.4rem;
+    width: 100%;
+  }
 
-      .hero-actions {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+  .nav-links a {
+    width: 100%;
+    padding: 0.35rem 0;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #111827;        /* darker for readability */
+  }
 
-      .input-row {
-        grid-template-columns: minmax(0,1fr);
-      }
+  .nav-links a::after {
+    display: none;         /* remove tiny underline bar on mobile */
+  }
 
-      .footer-inner {
-        flex-direction: column;
-      }
-    }
+  .nav-cta {
+    width: 100%;
+    margin-top: 0.6rem;
+  }
+
+  .nav-cta .btn-primary {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* LAYOUT STACKING */
+
+  .hero-inner,
+  .comparison,
+  .two-col,
+  .contact {
+    grid-template-columns: minmax(0,1fr);
+  }
+
+  .cards-grid,
+  .gallery {
+    grid-template-columns: minmax(0,1fr);
+  }
+
+  .hero-card {
+    margin-top: 0.4rem;
+  }
+
+  .section-header {
+    margin-bottom: 1.2rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .input-row {
+    grid-template-columns: minmax(0,1fr);
+  }
+
+  .footer-inner {
+    flex-direction: column;
+  }
+}
+
+
   </style>
 </head>
 <body>
@@ -919,11 +981,12 @@
             <strong>Midwest’s Liquid Roofer</strong>
             <span>Commercial roof coatings by ACI Construction &amp; Restoration</span>
           </div>
-        </div>
-
-        <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">
+          <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">
           ☰
         </button>
+        </div>
+
+        
 
         <div class="nav-main">
           <div class="nav-links">
