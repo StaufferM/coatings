@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Midwest’s Liquid Roofer | ACI Construction &amp; Restoration</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Midwest’s Liquid Roofer, powered by ACI Construction &amp; Restoration, helps commercial and industrial building owners restore aging flat and low-slope roofs with high-performance liquid-applied systems—often for 40–70% less than replacement." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #E5E7EB;                 /* steel/light grey */
+      --bg-alt: #F3F4F6;
+      --card: #FFFFFF;
+      --accent: #2C8D47;             /* primary green from logo */
+      --accent-soft: rgba(44,141,71,0.14);
+      --accent-strong: #37B457;
+      --border-subtle: rgba(15,23,42,0.08);
+      --text: #111827;
+      --muted: #4B5563;
+      --danger: #DC2626;
+      --success: #16A34A;
+      --shadow-soft: 0 18px 45px rgba(15,23,42,0.08);
+      --radius-lg: 18px;
+      --radius-xl: 26px;
+      --radius-pill: 999px;
+      --nav-height: 80px;
+      --max-width: 1120px;
+    }
+
+    /* bump global font size slightly for readability */
+    html {
+      font-size: 17px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(180deg, var(--bg-alt), var(--bg));
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
+      min-height: 100vh;
+    }
+
+    .shell {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* NAVBAR */
+
+    .nav-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(14px);
+      background: rgba(255,255,255,0.98);
+      border-bottom: 1px solid rgba(148,163,184,0.35);
+      box-shadow: 0 4px 10px rgba(15,23,42,0.04);
+    }
+
+    .nav {
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .brand-logo img {
+      height: 46px;
+      width: auto;
+    }
+
+    .brand-sub {
+      display: flex;
+      flex-direction: column;
+      font-size: 0.7rem;
+      color: var(--muted);
+      line-height: 1.3;
+    }
+
+    .brand-sub strong {
+      color: #111827;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* group links + button on the right side */
+    .nav-main {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-left: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.3rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      position: relative;
+      padding-bottom: 2px;
+      transition: color 0.16s ease;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0%;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-strong));
+      transition: width 0.18s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+    }
+
+    /* buttons */
+
+    .btn {
+      border-radius: 6px;
+      padding: 0.5rem 1.05rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: 1px solid transparent;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: all 0.16s ease;
+      background: transparent;
+      color: var(--text);
+    }
+
+    .btn-primary {
+      background: #2C8D47;
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      padding: 0.55rem 1.1rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.12s ease;
+      box-shadow: 0 10px 22px rgba(34,197,94,0.25);
+    }
+
+    .btn-primary:hover {
+      background: #37B457;
+      box-shadow: 0 12px 28px rgba(34,197,94,0.35);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      border-color: rgba(148,163,184,0.8);
+      background: #F9FAFB;
+      color: var(--muted);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: #ffffff;
+    }
+
+    /* mobile nav toggle */
+
+    .nav-toggle {
+      display: none;
+      border: none;
+      background: transparent;
+      color: #111827;
+      cursor: pointer;
+      font-size: 1.4rem;
+    }
+
+    /* HERO */
+
+    .hero {
+      padding: 2.7rem 0 3.7rem;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0,1.3fr) minmax(0,1fr);
+      gap: 2.25rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      border-radius: var(--radius-pill);
+      padding: 0.3rem 0.75rem;
+      background: rgba(148,163,184,0.15);
+      border: 1px solid rgba(148,163,184,0.5);
+      color: var(--muted);
+      font-size: 0.78rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .eyebrow span.tag {
+      border-radius: var(--radius-pill);
+      padding: 0.12rem 0.5rem;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.7rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.3rem, 3.4vw, 3.1rem);
+      line-height: 1.05;
+      margin-bottom: 0.85rem;
+      color: #020617;
+    }
+
+    .hero h1 span.highlight {
+      background: radial-gradient(circle at 0 0, #22c55e, var(--accent-strong));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-sub {
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 33rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin: 1.1rem 0 1.7rem;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      border-radius: var(--radius-pill);
+      padding: 0.4rem 0.9rem;
+      background: #F3F4F6;
+      border: 1px solid var(--border-subtle);
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .hero-badge-icon {
+      width: 16px;
+      height: 16px;
+      border-radius: 999px;
+      background: rgba(22,163,74,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: var(--accent);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      align-items: center;
+      margin-bottom: 1.1rem;
+    }
+
+    .hero-legal {
+      font-size: 0.8rem;
+      color: var(--muted);
+      opacity: 0.9;
+    }
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .hero-card {
+      background: #FFFFFF;
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(148,163,184,0.4);
+      padding: 1.2rem 1.3rem;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-card-title {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+
+    .hero-card-pill {
+      font-size: 0.75rem;
+      border-radius: var(--radius-pill);
+      padding: 0.18rem 0.6rem;
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .hero-split {
+      display: grid;
+      grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-panel {
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(209,213,219,0.9);
+      padding: 0.8rem 0.85rem;
+      background: #F9FAFB;
+      font-size: 0.8rem;
+    }
+
+    .hero-panel h3 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .big-number {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .big-number.bad {
+      color: var(--danger);
+    }
+
+    .big-number.good {
+      color: var(--success);
+    }
+
+    .hero-panel p {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .hero-tagline {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .hero-tagline span {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .hero-floating {
+      position: absolute;
+      bottom: -10px;
+      right: -10px;
+      width: 150px;
+      height: 150px;
+      background: radial-gradient(circle at 30% 0, rgba(34,197,94,0.16), transparent 60%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    /* SECTIONS GENERIC */
+
+    section {
+      padding: 2.7rem 0;
+    }
+
+    .section-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+
+    .section-header {
+      margin-bottom: 1.7rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .section-header h2 {
+      font-size: 1.5rem;
+      color: #020617;
+    }
+
+    .section-header p {
+      font-size: 0.98rem;
+      color: var(--muted);
+      max-width: 32rem;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 1.2rem;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius-lg);
+      padding: 1.1rem;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 6px 18px rgba(15,23,42,0.04);
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.45rem;
+      color: #020617;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .pill-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    /* COST COMPARISON */
+
+    .comparison {
+      display: grid;
+      grid-template-columns: minmax(0,1.15fr) minmax(0,1fr);
+      gap: 1.4rem;
+      align-items: flex-start;
+    }
+
+    .compare-card {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      padding: 1.1rem;
+      background: var(--card);
+      box-shadow: 0 6px 18px rgba(15,23,42,0.04);
+    }
+
+    .compare-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.4rem;
+    }
+
+    .compare-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: #020617;
+    }
+
+    .compare-tag.bad {
+      font-size: 0.78rem;
+      color: var(--danger);
+      background: rgba(248,113,113,0.12);
+      border-radius: var(--radius-pill);
+      padding: 0.16rem 0.5rem;
+    }
+
+    .compare-tag.good {
+      font-size: 0.78rem;
+      color: var(--accent-strong);
+      background: rgba(34,197,94,0.12);
+      border-radius: var(--radius-pill);
+      padding: 0.16rem 0.5rem;
+    }
+
+    .compare-cost {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+      color: #020617;
+    }
+
+    .compare-sub {
+      font-size: 0.86rem;
+      color: var(--muted);
+      margin-bottom: 0.55rem;
+    }
+
+    .compare-list {
+      list-style: none;
+      font-size: 0.86rem;
+      color: var(--muted);
+      display: grid;
+      gap: 0.3rem;
+    }
+
+    .compare-list li::before {
+      content: "• ";
+      color: rgba(148,163,184,0.9);
+    }
+
+    .compare-footer {
+      margin-top: 0.7rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+      opacity: 0.9;
+    }
+
+    /* CHECKLIST + PROCESS */
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0,1.1fr) minmax(0,1fr);
+      gap: 1.4rem;
+      align-items: flex-start;
+    }
+
+    .checklist {
+      list-style: none;
+      display: grid;
+      gap: 0.45rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.45rem;
+    }
+
+    .check-icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      background: rgba(34,197,94,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: var(--accent-strong);
+      margin-top: 0.08rem;
+    }
+
+    .process-steps {
+      display: grid;
+      gap: 0.7rem;
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    .step {
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      padding: 0.45rem 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: #F9FAFB;
+    }
+
+    .step-num {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent-strong);
+      font-size: 0.78rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+    }
+
+    .step strong {
+      color: #020617;
+    }
+
+    /* GALLERY PLACEHOLDERS */
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 1rem;
+    }
+
+    .gallery-item {
+      border-radius: var(--radius-lg);
+      border: 1px dashed rgba(148,163,184,0.9);
+      padding: 0.8rem;
+      background: #F9FAFB;
+    }
+
+    .gallery-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+
+ .gallery-box {
+  border-radius: 14px;
+  border: 1px solid var(--border-subtle);
+  overflow: hidden;
+  /* Make all tiles the same shape/size */
+  aspect-ratio: 4 / 3;   /* tweak to 16/9 or whatever you like */
+  background: #e5e7eb;
+}
+
+/* Force all images to fill the box consistently */
+.gallery-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* crops edges to fill, keeps it looking clean */
+  display: block;
+}
+
+
+    .gallery-caption {
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    /* SERVICE AREA + TRUST */
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-size: 0.82rem;
+    }
+
+    .chip {
+      border-radius: var(--radius-pill);
+      padding: 0.22rem 0.7rem;
+      border: 1px solid var(--border-subtle);
+      background: #F9FAFB;
+      color: var(--muted);
+    }
+
+    .trust-strip {
+      margin-top: 1.5rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(148,163,184,0.8);
+      padding: 0.7rem 1rem;
+      background: linear-gradient(90deg, #ECFDF3, #FFFFFF);
+      font-size: 0.84rem;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.7rem;
+    }
+
+    .trust-highlight {
+      font-weight: 600;
+      color: var(--accent-strong);
+    }
+
+    /* CONTACT */
+
+    .contact {
+      display: grid;
+      grid-template-columns: minmax(0,1.1fr) minmax(0,1fr);
+      gap: 1.4rem;
+      align-items: flex-start;
+    }
+
+    .contact-card {
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(148,163,184,0.8);
+      background: linear-gradient(135deg, #ECFDF3, #FFFFFF);
+      padding: 1.25rem 1.4rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .contact-intro {
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin-bottom: 0.9rem;
+    }
+
+    .contact-meta {
+      font-size: 0.84rem;
+      color: var(--muted);
+      margin-top: 0.9rem;
+    }
+
+    form {
+      display: grid;
+      gap: 0.8rem;
+      font-size: 0.88rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 0.12rem;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid #D1D5DB;
+      background: #F9FAFB;
+      color: var(--text);
+      padding: 0.5rem 0.65rem;
+      font-size: 0.88rem;
+      outline: none;
+      transition: border-color 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--accent-strong);
+      box-shadow: 0 0 0 1px rgba(34,197,94,0.4);
+      background: #FFFFFF;
+    }
+
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .input-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 0.8rem;
+    }
+
+    .small-text {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 0.45rem;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid rgba(148,163,184,0.7);
+      padding: 1.3rem 0 1.7rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 2.1rem;
+      background: rgba(243,244,246,0.9);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.4rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-strong);
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 960px) {
+      .hero-inner,
+      .comparison,
+      .two-col,
+      .contact {
+        grid-template-columns: minmax(0,1fr);
+      }
+
+      .hero {
+        padding-top: 2.1rem;
+      }
+
+      .hero-visual {
+        order: -1;
+      }
+
+      .cards-grid,
+      .gallery {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-main {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+
+      .nav-menu-open .nav-main {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.9rem;
+        padding: 0.75rem 0 1.1rem;
+      }
+
+      .nav-wrap {
+        background: rgba(255,255,255,0.98);
+      }
+
+      .hero-card {
+        margin-top: 0.4rem;
+      }
+
+      .cards-grid,
+      .gallery {
+        grid-template-columns: minmax(0,1fr);
+      }
+
+      .section-header {
+        margin-bottom: 1.2rem;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .input-row {
+        grid-template-columns: minmax(0,1fr);
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- NAVBAR -->
+  <header class="nav-wrap" id="top">
+    <div class="shell">
+      <nav class="nav" id="top-nav">
+        <div class="brand">
+          <div class="brand-logo">
+            <!-- update src path as needed -->
+            <img src="FULL LOGO - TRANSPARENT - BLACK TEXT.png"
+                 alt="ACI Construction &amp; Restoration - The Smart Choice">
+          </div>
+          <div class="brand-sub">
+            <strong>Midwest’s Liquid Roofer</strong>
+            <span>Commercial roof coatings by ACI Construction &amp; Restoration</span>
+          </div>
+        </div>
+
+        <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">
+          ☰
+        </button>
+
+        <div class="nav-main">
+          <div class="nav-links">
+            <a href="#why">Why Coatings</a>
+            <a href="#costs">Cost Compare</a>
+            <a href="#process">Process</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <div class="nav-cta">
+            <a href="#contact" class="btn btn-primary">Free Roof Health Report →</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main>
+    <section class="hero">
+      <div class="shell">
+        <div class="hero-inner">
+          <div>
+            <div class="eyebrow">
+              <span class="tag">Midwest’s Liquid Roofer</span>
+              <span>Powered by ACI Construction &amp; Restoration</span>
+            </div>
+
+            <h1>
+              Turning aging commercial roofs into
+              <span class="highlight">long-term assets</span>.
+            </h1>
+
+            <p class="hero-sub">
+              We help building owners across the Midwest extend the life of flat and low-slope roofs
+              with high-performance liquid-applied systems—often for <strong>40–70% less</strong> than
+              full replacement.
+            </p>
+
+            <div class="hero-badges">
+              <div class="hero-badge">
+                <div class="hero-badge-icon">%</div>
+                <span>Lower capital spend vs tear-off</span>
+              </div>
+              <div class="hero-badge">
+                <div class="hero-badge-icon">☀</div>
+                <span>Cool roof reflectivity &amp; energy savings</span>
+              </div>
+              <div class="hero-badge">
+                <div class="hero-badge-icon">✓</div>
+                <span>Manufacturer warranties available</span>
+              </div>
+            </div>
+
+            <div class="hero-actions">
+              <a href="#contact" class="btn btn-primary">
+                Book a roof assessment
+                <span>→</span>
+              </a>
+              <a href="#costs" class="btn btn-outline">
+                See coating vs replacement costs
+              </a>
+            </div>
+            <p class="hero-legal">
+              For commercial &amp; industrial roofs typically 10–35+ years old across the Midwest region.
+            </p>
+          </div>
+
+          <div class="hero-visual">
+            <div class="hero-card">
+              <div class="hero-card-header">
+                <div class="hero-card-title">Roof Budget Snapshot</div>
+                <div class="hero-card-pill">Real-world cost scenarios</div>
+              </div>
+
+              <div class="hero-split">
+                <div class="hero-panel">
+                  <h3>Tear-Off &amp; Replace</h3>
+                  <div class="big-number bad">$15–$25 / sq ft</div>
+                  <p>Full removal, dumpsters, new insulation, new membrane, major disruption.</p>
+                  <p>Cap-ex heavy. Landfill-intensive. Parts of the building offline.</p>
+                </div>
+
+                <div class="hero-panel">
+                  <h3>Liquid-Applied System</h3>
+                  <div class="big-number good">$7–$10 / sq ft</div>
+                  <p>Existing roof stays in place. Seams and penetrations detailed and sealed.</p>
+                  <p>Fast install. Minimal disruption. Warranties up to 20 years.</p>
+                </div>
+              </div>
+
+              <p class="hero-tagline">
+                We help you decide when to <span>restore</span>—and when you truly need to
+                <span>replace</span>.
+              </p>
+
+              <div class="hero-floating"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY COATINGS -->
+    <section id="why">
+      <div class="shell">
+        <div class="section-header">
+          <div class="section-label">Why liquid-applied roofing</div>
+          <h2>Stop defaulting to tear-offs. Start thinking restoration first.</h2>
+          <p>
+            Liquid-applied roofing builds a seamless, watertight membrane directly over your existing
+            system. Less disruption, less waste, and a smarter way to manage capital improvements.
+          </p>
+        </div>
+
+        <div class="cards-grid">
+          <div class="card">
+            <div class="pill-label">Cost</div>
+            <h3>40–70% lower up-front cost</h3>
+            <p>
+              Avoid major tear-off, landfill fees, and heavy labor. Coating systems commonly land in
+              the $7–$10 / sq ft range depending on prep, details, and warranty length.
+            </p>
+          </div>
+          <div class="card">
+            <div class="pill-label">Operations</div>
+            <h3>Minimal business disruption</h3>
+            <p>
+              Most projects happen with tenants and operations ongoing. No full tear-off, no exposed
+              deck, and fewer weather-risk days.
+            </p>
+          </div>
+          <div class="card">
+            <div class="pill-label">Performance</div>
+            <h3>Seamless, reflective protection</h3>
+            <p>
+              We target leaks at seams, rusted fasteners, penetrations, and ponding areas, then build
+              a monolithic coating layer that moves with the building.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COST COMPARISON -->
+    <section id="costs">
+      <div class="shell">
+        <div class="section-header">
+          <div class="section-label">Cost comparison</div>
+          <h2>Coating vs replacement: what it really looks like on paper.</h2>
+          <p>
+            Every roof is different—but the math tends to rhyme. Here’s how restoration stacks up
+            against a traditional rip-and-replace on most aging commercial roofs.
+          </p>
+        </div>
+
+        <div class="comparison">
+          <div class="compare-card">
+            <div class="compare-header">
+              <span class="compare-title">Tear-Off &amp; New Roof</span>
+              <span class="compare-tag bad">High cap-ex</span>
+            </div>
+            <div class="compare-cost">$15–$25 / sq ft</div>
+            <div class="compare-sub">Typical commercial project range (labor, materials, disposal).</div>
+            <ul class="compare-list">
+              <li>Existing roof removed and landfilled</li>
+              <li>New insulation package + code upgrades</li>
+              <li>New membrane or panels installed</li>
+              <li>Heavy equipment, dumpsters, staging</li>
+              <li>Portions of building offline during work</li>
+            </ul>
+            <div class="compare-footer">
+              Replacement is essential when the structure, deck, or insulation are compromised—or when
+              code demands it. We’ll tell you when you’re there.
+            </div>
+          </div>
+
+          <div class="compare-card">
+            <div class="compare-header">
+              <span class="compare-title">Liquid-Applied Restoration</span>
+              <span class="compare-tag good">Smart spend</span>
+            </div>
+            <div class="compare-cost">$7–$10 / sq ft</div>
+            <div class="compare-sub">Depends on roof condition, prep level, and warranty term.</div>
+            <ul class="compare-list">
+              <li>Existing roof remains in place</li>
+              <li>Seams, penetrations, and trouble spots detailed</li>
+              <li>High-performance coating creates a new membrane</li>
+              <li>Far less waste, noise, and disruption</li>
+              <li>Manufacturer warranties commonly 10–20 years</li>
+            </ul>
+            <div class="compare-footer">
+              You save on demo, dump fees, and heavy labor—while extending the life of the asset and
+              often improving energy performance.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CANDIDATE + PROCESS -->
+    <section id="process">
+      <div class="shell">
+        <div class="section-header">
+          <div class="section-label">Roof fit &amp; process</div>
+          <h2>Is your roof a candidate—and what happens if it is?</h2>
+          <p>
+            Not every roof can be saved. Our job is to give you a clear, honest picture—and a
+            restoration plan that makes sense when it can.
+          </p>
+        </div>
+
+        <div class="two-col">
+          <div class="card">
+            <div class="pill-label">Ideal roof profiles</div>
+            <h3>Roofs that are perfect for coating.</h3>
+            <ul class="checklist">
+              <li>
+                <div class="check-icon">✓</div>
+                <span>Flat or low-slope roofs roughly <strong>10–35+ years</strong> old.</span>
+              </li>
+              <li>
+                <div class="check-icon">✓</div>
+                <span>Leaks mainly at seams, fasteners, penetrations, or terminations.</span>
+              </li>
+              <li>
+                <div class="check-icon">✓</div>
+                <span>Metal roofs with rust but <strong>sound structure</strong> and panels.</span>
+              </li>
+              <li>
+                <div class="check-icon">✓</div>
+                <span>EPDM, TPO, PVC, mod-bit, or BUR with UV wear, chalking, or alligatoring.</span>
+              </li>
+              <li>
+                <div class="check-icon">✓</div>
+                <span>Insulation that tests dry or with isolated wet areas we can surgically repair.</span>
+              </li>
+              <li>
+                <div class="check-icon">✓</div>
+                <span>Owners who want to <strong>extend life</strong>, not trigger a full replacement cycle.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="pill-label">Our process</div>
+            <h3>What it’s like to work with Midwest’s Liquid Roofer.</h3>
+            <div class="process-steps">
+              <div class="step">
+                <div class="step-num">1</div>
+                <div>
+                  <strong>Assessment &amp; roof health report</strong><br />
+                  Aerial review, on-roof inspection, and moisture testing where appropriate.
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-num">2</div>
+                <div>
+                  <strong>Budget-ready options</strong><br />
+                  Clear comparison of restoration vs replacement with ranges and warranty paths.
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-num">3</div>
+                <div>
+                  <strong>Prep &amp; detail work</strong><br />
+                  Cleaning, repairs, seam reinforcement, penetration details, rust treatment.
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-num">4</div>
+                <div>
+                  <strong>Coating application</strong><br />
+                  High-performance liquid-applied system installed to manufacturer specs.
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-num">5</div>
+                <div>
+                  <strong>Final walkthrough &amp; documentation</strong><br />
+                  Photos, specs, and paperwork for your files, lender, insurer, or board.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS / GALLERY PLACEHOLDERS -->
+    <section id="projects">
+      <div class="shell">
+        <div class="section-header">
+          <div class="section-label">Projects</div>
+          <h2>From faded, leaking, and tired—to clean, bright, and watertight.</h2>
+          <p>
+            
+          </p>
+        </div>
+
+        <div class="gallery">
+          <div class="gallery-item">
+            <div class="gallery-label">Warehouse – 100,000 sq ft</div>
+            <div class="gallery-box" >
+              <img src="4.jpg"
+                 alt="ACI Construction &amp; Restoration - The Smart Choice">
+            </div>
+            <!-- <div class="gallery-caption">
+              Aging EPDM with chronic seam leaks. Restored with liquid-applied system and upgraded
+              reflectivity for lower summer heat load.
+            </div> -->
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-label">Manufacturing – Metal</div>
+            <div class="gallery-box" >
+              <img src="DJI_20250929103654_0753_D.JPG"
+                 alt="ACI Construction &amp; Restoration - The Smart Choice">
+            </div>
+            <!-- <div class="gallery-caption">
+              Rusted fasteners and panel laps sealed, then fully encapsulated in coating—eliminating
+              recurring leak calls.
+            </div> -->
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-label">Retail Center – Multi-Tenant</div>
+            <div class="gallery-box" >
+              <img src="hilliard coating2.JPG"
+                 alt="ACI Construction &amp; Restoration - The Smart Choice">
+            </div>
+            <!-- <div class="gallery-caption">
+              Complex roof layout with multiple penetrations. Coating allowed work with tenants open
+              and minimized parking disruption.
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICE AREA + TRUST -->
+    <section>
+      <div class="shell">
+        <div class="section-header">
+          <div class="section-label">Service area</div>
+          <h2>Built for Midwest weather—and Midwest buildings.</h2>
+          <p>
+            We focus on the Midwest region so we can design systems that actually match your climate,
+            snow loads, and seasonal temperature swings.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="pill-label">Regions we commonly serve</div>
+          <div class="chips">
+            <span class="chip">Ohio</span>
+            <span class="chip">Indiana</span>
+            <span class="chip">Michigan</span>
+            <span class="chip">Kentucky</span>
+            <span class="chip">Western Pennsylvania</span>
+            <!-- <span class="chip">Select surrounding markets by request</span> -->
+          </div>
+
+          <div class="trust-strip">
+            <span>
+              <span class="trust-highlight">Midwest’s Liquid Roofer</span> is a brand-agnostic roof
+              restoration service from <strong>ACI Construction &amp; Restoration</strong>—focused on
+              the right system for the right roof, not pushing a single manufacturer.
+            </span>
+            <span>
+              Ask about available <span class="trust-highlight">10, 15, and 20-year</span> warranty
+              options based on your roof and coating spec.
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT / ESTIMATE -->
+    <section id="contact">
+      <div class="shell">
+        <div class="section-header">
+          <div class="section-label">Next steps</div>
+          <h2>Ready to see if your roof can be restored instead of replaced?</h2>
+          <p>
+            Share a few details about your building and we’ll follow up with a free roof health
+            conversation—and, if it makes sense, a site visit.
+          </p>
+        </div>
+
+        <div class="contact">
+          <div class="contact-card">
+            <h3>Request a Roof Health Report</h3>
+            <p class="contact-intro">
+              No pressure. No boiler-room sales tactics. Just a clear, data-backed look at whether a
+              liquid-applied system makes financial and structural sense for your roof.
+            </p>
+
+            <form>
+              <div class="input-row">
+                <div>
+                  <label for="name">Name</label>
+                  <input id="name" type="text" name="name" placeholder="Your name" />
+                </div>
+                <div>
+                  <label for="company">Company / Organization</label>
+                  <input id="company" type="text" name="company" placeholder="Property / company name" />
+                </div>
+              </div>
+
+              <div class="input-row">
+                <div>
+                  <label for="email">Email</label>
+                  <input id="email" type="email" name="email" placeholder="you@company.com" />
+                </div>
+                <div>
+                  <label for="phone">Phone</label>
+                  <input id="phone" type="tel" name="phone" placeholder="(555) 123-4567" />
+                </div>
+              </div>
+
+              <div>
+                <label for="location">Building location (city, state)</label>
+                <input id="location" type="text" name="location" placeholder="e.g., Columbus, OH" />
+              </div>
+
+              <div class="input-row">
+                <div>
+                  <label for="size">Approx. roof size (sq ft)</label>
+                  <input id="size" type="text" name="size" placeholder="e.g., 50,000" />
+                </div>
+                <div>
+                  <label for="roof-type">Current roof type</label>
+                  <select id="roof-type" name="roof_type">
+                    <option value="">Select roof type</option>
+                    <option>Flat / low-slope – single-ply (EPDM, TPO, PVC)</option>
+                    <option>Flat – built-up / mod-bit</option>
+                    <option>Metal – standing seam</option>
+                    <option>Metal – screw-down</option>
+                    <option>Not sure / mixed</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label for="issues">Biggest issues you’re seeing</label>
+                <textarea id="issues" name="issues" placeholder="Leaks, ponding, rust, rising utility costs, insurance requirements, etc."></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="margin-top:0.2rem;">
+                Submit request
+              </button>
+
+              <p class="small-text">
+                You can also reach out directly at
+                <strong>michaelstauffer@acicontractors.com</strong> or by phone at
+                <strong>(614) 266-9249</strong>.
+              </p>
+            </form>
+
+            <p class="contact-meta">
+              We typically respond within one business day with next steps, which may include aerial
+              review, site visit scheduling, or a quick call to clarify your goals and constraints.
+            </p>
+          </div>
+
+          <div>
+            <div class="card">
+              <div class="pill-label">Who we’re built for</div>
+              <h3>Ideal partners for restoration.</h3>
+              <p style="font-size:0.9rem; color: var(--muted); margin-top:0.2rem;">
+                Facility managers, property owners, asset managers, and operators responsible for:
+              </p>
+              <ul class="checklist" style="margin-top:0.5rem;">
+                <li>
+                  <div class="check-icon">✓</div>
+                  <span>Warehouses &amp; logistics centers</span>
+                </li>
+                <li>
+                  <div class="check-icon">✓</div>
+                  <span>Manufacturing &amp; industrial facilities</span>
+                </li>
+                <li>
+                  <div class="check-icon">✓</div>
+                  <span>Retail plazas &amp; multi-tenant buildings</span>
+                </li>
+                <li>
+                  <div class="check-icon">✓</div>
+                  <span>Schools, churches, and civic buildings</span>
+                </li>
+                <li>
+                  <div class="check-icon">✓</div>
+                  <span>Portfolios with multiple aging roofs to evaluate</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="card" style="margin-top:1rem;">
+              <div class="pill-label">What you get</div>
+              <h3>Clarity first. Coating second.</h3>
+              <p style="font-size:0.9rem; color:var(--muted); margin-top:0.35rem;">
+                Our first job isn’t to sell you a coating—it’s to tell you, honestly, if a coating is
+                the right move for your roof. If replacement is the smarter play, we’ll say that too.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="shell">
+      <div class="footer-inner">
+        <span>
+          © <span id="year"></span> Midwest’s Liquid Roofer · ACI Construction &amp; Restoration. All rights reserved.
+        </span>
+        <div class="footer-links">
+          <a href="#top">Back to top ↑</a>
+          <a href="#contact">Schedule an assessment</a>
+          <a href="mailto:michael@acicontractors.com">Email</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script>
+  function toggleNav() {
+    const navWrap = document.querySelector('.nav-wrap');
+    navWrap.classList.toggle('nav-menu-open');
+  }
+
+  // Smooth scroll for in-page links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const targetId = this.getAttribute('href').slice(1);
+      const target = document.getElementById(targetId);
+      if (target) {
+        e.preventDefault();
+        const y = target.getBoundingClientRect().top + window.pageYOffset - 90;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+        document.querySelector('.nav-wrap').classList.remove('nav-menu-open');
+      }
+    });
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
